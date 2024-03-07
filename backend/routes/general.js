@@ -43,28 +43,12 @@ generalRoute.post('/signUp', async (req,res)=>{
 
 //localPassport
 
-// generalRoute.post('/signIn', passport.authenticate('local',{failureRedirect:'/fail'}),async(req,res)=>{
-//     try{
-//         console.log('/signIn',req.user.id)
-//         const user =await users.findOne({_id:req.user},{password:0})  //how can i access the info in other endpiont
-//         if(user){
-//             res.status(200).json({user})
-//         } 
-//     } catch(e){
-//         console.error('/signIn::',e.message)
-//         res.json({error:"signIn failed"})
-//     }   
-    
-// })
-
-
-//jwt
-
-generalRoute.post('/signIn', passport.authenticate('local',{session:false,failureRedirect:'/fail'}),async(req,res)=>{
+generalRoute.post('/signIn', passport.authenticate('local',{failureRedirect:'/fail'}),async(req,res)=>{
     try{
-        
-        if(req.user){
-            res.status(200).json(req.user)
+        console.log('/signIn',req.user.id)
+        const user =await users.findOne({_id:req.user},{password:0})  //how can i access the info in other endpiont
+        if(user){
+            res.status(200).json({user})
         } 
     } catch(e){
         console.error('/signIn::',e.message)
@@ -72,6 +56,22 @@ generalRoute.post('/signIn', passport.authenticate('local',{session:false,failur
     }   
     
 })
+
+
+//jwt
+
+// generalRoute.post('/signIn', passport.authenticate('local',{session:false,failureRedirect:'/fail'}),async(req,res)=>{
+//     try{
+        
+//         if(req.user){
+//             res.status(200).json(req.user)
+//         } 
+//     } catch(e){
+//         console.error('/signIn::',e.message)
+//         res.json({error:"signIn failed"})
+//     }   
+    
+// })
 
 
 

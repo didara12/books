@@ -27,7 +27,7 @@ export default function SignUp() {
     validationSchema,
     onSubmit:async(val)=>{
       setLoad(true)
-      const res = await axios.post('http://localhost:5000/general/signUp',val)
+      const res = await axios.post('https://books-v4n4.onrender.com/general/signUp',val)
       setLoad(false)
       if(res.data.error) setE(res.data.error)
       console.log(res.data)

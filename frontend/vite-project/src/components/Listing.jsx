@@ -12,7 +12,7 @@ export default function Listing({type,data}) {
     useEffect(()=>{
         const f = async ()=>{
           const token = sessionStorage.getItem('token')
-            const res = await axios.post('http://localhost:5000/cus/find',{type,data},{
+            const res = await axios.post('https://books-v4n4.onrender.com/cus/find',{type,data},{
               headers:{
                 Authorization:`Bearer ${token}`
               }

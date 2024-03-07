@@ -13,21 +13,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(morgan('dev'))
 app.use(cors())
-app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true}))
-// app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true, cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 }}))
+// app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true}))
+app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true, cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 }}))
 
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-// app.use('/cus/auth',(req,res,next)=>{
-//     !req.isAuthenticated() ? res.json({error:'you must logIn first'}) : next()
-//     res.locals
-// })
+app.use('/cus/auth',(req,res,next)=>{
+    !req.isAuthenticated() ? res.json({error:'you must logIn first'}) : next()
+    
+})
 
 
-app.use('/cus/auth',passport.authenticate('jwt',{session:false,failureRedirect:'/fail'}))
+// app.use('/cus/auth',passport.authenticate('jwt',{session:false,failureRedirect:'/fail'}))
 
 
 app.get('/',(req,res)=>{

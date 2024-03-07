@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+require("dotenv").config()
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-const url = "mongodb+srv://didara:did1245698523ARA@cluster0.fkiaij8.mongodb.net/books"
+const url = `mongodb+srv://didara:${process.env.MONGDB}@cluster0.fkiaij8.mongodb.net/books`
 // const url = "mongodb://localhost:27017/books"
 
 

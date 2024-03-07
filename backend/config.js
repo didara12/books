@@ -21,13 +21,14 @@ const conf = (passport)=>{
          const bool = bcrypt.compareSync(password,user.password)
          if(!bool) return done(null,false,{error:'incorect password'})
          
-         const token = jwt.sign({id:user._id},process.env.KEY,{expiresIn:'1h'})
+         // const token = jwt.sign({id:user._id},process.env.KEY,{expiresIn:'1h'})
          
-         const obj = {
-            user,token
-         }
+         // const obj = {
+         //    user,token
+         // }
 
          done(null,obj)
+         done(null,user._id)
  
       }catch(e){
           done(e)
@@ -76,13 +77,13 @@ const conf = (passport)=>{
          done(null,pyload)
      }))
 
-   //   passport.serializeUser((id,done)=>{
-   //      done(null,id)
-   //   })
+     passport.serializeUser((id,done)=>{
+        done(null,id)
+     })
 
-   //   passport.deserializeUser((id,done)=>{
-   //      done(null,id)
-   //   })
+     passport.deserializeUser((id,done)=>{
+        done(null,id)
+     })
 
  
 

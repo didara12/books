@@ -43,7 +43,8 @@ export default function Search() {
         initialValues.search = e.target.value
         
         if(oldData[0] === null) setLoud(true)
-        const {data} =await axios.post('http://localhost:5000/cus/find',initialValues)
+        // const {data} =await axios.post('http://localhost:5000/cus/find',initialValues)
+        const {data} =await axios.post('https://books-v4n4.onrender.com/cus/find',initialValues)
         setLoud(false)
         setOldData(Cdata)
         setCdata(data)
@@ -57,7 +58,8 @@ export default function Search() {
       initialValues.search = search.current.value
     
       setLoud(true)
-      const {data} =await axios.post('http://localhost:5000/cus/find',initialValues)
+      // const {data} =await axios.post('http://localhost:5000/cus/find',initialValues)
+      const {data} =await axios.post('https://books-v4n4.onrender.com/cus/find',initialValues)
       setLoud(false)
 
     }

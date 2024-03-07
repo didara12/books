@@ -11,7 +11,7 @@ export default function ({id,name,description,type}) {
   const handleClick =async ()=>{
     try {
       if(!user.crid) throw new Error('you must sign in first')
-      const res = await axios.post('http://localhost:/cut/delete',{id})
+      const res = await axios.post('https://books-v4n4.onrender.com/cut/delete',{id})
     } catch (error) {
       console.log(error.message)
     }
