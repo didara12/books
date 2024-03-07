@@ -33,7 +33,7 @@ export default function SignIn() {
       setLoad(true)
       const res = await axios.post('https://books-v4n4.onrender.com/general/signIn',val)
       if(res.data.error) return  setE(res.data.error)
-      sessionStorage.setItem('token',res.data.token)
+      // sessionStorage.setItem('token',res.data.token)
       sessionStorage.setItem('crid',JSON.stringify(res.data.user))
       setLoad(false)
       window.location.reload()

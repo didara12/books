@@ -26,8 +26,8 @@ const conf = (passport)=>{
          // const obj = {
          //    user,token
          // }
-
-         done(null,obj)
+ 
+         // done(null,obj)
          done(null,user._id)
  
       }catch(e){
