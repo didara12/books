@@ -48,6 +48,7 @@ generalRoute.post('/signIn', passport.authenticate('local',{failureRedirect:'/fa
         console.log('/signIn',req.user.id)
         const user =await users.findOne({_id:req.user},{password:0})  //how can i access the info in other endpiont
         if(user){
+            res.setHeader('X-Frame-Options', 'DENY')
             res.status(200).json({user})
         } 
     } catch(e){

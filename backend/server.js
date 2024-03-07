@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'))
 app.use(cors())
 // app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true}))
-app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true, cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 }}))
+app.use(session({secret:process.env.SEC,resave:true,saveUninitialized:true, cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, sameSite:"strict" }}))
 
 
 app.use(passport.initialize());
