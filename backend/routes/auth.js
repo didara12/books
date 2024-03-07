@@ -6,7 +6,7 @@ const authRoute = express.Router()
 
 
 
-authRoute.post('/find',async (req,res)=>{
+authRoute.post('/auth/find',async (req,res)=>{
     try{
 
         const s = req.body
